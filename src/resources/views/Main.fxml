@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.Pane?>
+
+<SplitPane dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1241.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MainController">
+
+	<items>
+		<fx:include source="TreeView.fxml" />
+
+		<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Pane prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
+               <children>
+                  <Label layoutX="216.0" layoutY="274.0" text="test" />
+               </children>
+            </Pane>
+            <Pane prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
+               <children>
+                  <Label layoutX="402.0" layoutY="424.0" text="test2" />
+               </children>
+            </Pane>
+         </children>
+		</AnchorPane>
+	</items>
+	
+</SplitPane>
