@@ -139,6 +139,7 @@
 					GridPane.rowIndex="6" />
 					
 				<Button 
+					fx:id="sendBtn"
 					styleClass="bg-main-color, fc-w"
 					mnemonicParsing="false" prefHeight="27.0"
 					prefWidth="143.0" text="전송" textAlignment="RIGHT"

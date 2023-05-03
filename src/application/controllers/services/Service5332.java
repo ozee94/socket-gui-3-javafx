@@ -7,11 +7,13 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class Service5332 implements Initializable{
 
 	@FXML private TextField lk_info_id, rcv_ymd_hms, seq_no, ocr_ymdhms, loc, point_x, point_y, earth_infm_scle, earth_infm_no_ord, earth_infm_ref, earth_infm_cd_stn;
+	@FXML private Button sendBtn;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -22,7 +24,11 @@ public class Service5332 implements Initializable{
 		
 		rcv_ymd_hms.setText(now);
 		ocr_ymdhms.setText(now);
-	
+		
+		sendBtn.setOnAction(e -> this.onSend());
 	}
-
+	
+	public void onSend() {
+		System.out.println("click send button");
+	}
 }
