@@ -1,17 +1,13 @@
 package application.controllers;
 
 import java.net.URL;
-import java.util.EventListener;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import application.models.Service;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
@@ -25,18 +21,9 @@ public class TreeViewController implements Initializable {
 	
 	private final Node rootIcon = new ImageView(
 			new Image(getClass().getResourceAsStream("/resources/images/category.png")));
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/views/PanelView.fxml"));
-		try {
-			loader.load();			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		PanelViewController panelViewController = loader.getController();
-		
 		TreeItem<String> rootItem = new TreeItem<String>("root");
 
 		for (Service service : Service.values()) {
@@ -57,8 +44,7 @@ public class TreeViewController implements Initializable {
 
 		treeView.getSelectionModel().selectedItemProperty().addListener((observavle, oldValue, newValue) -> {
 			if (!Service.isService(newValue)) {
-				System.out.println(panelViewController);
-				panelViewController.handlePanel(newValue);
+				ControllerMediator.getInstance().getPanelViewController().handlePanel(newValue);
 			}
 		});
 	}

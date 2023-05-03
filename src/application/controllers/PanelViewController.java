@@ -17,6 +17,10 @@ public class PanelViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		panel5331.setVisible(false);
+		panel5332.setVisible(false);
+		panel5333.setVisible(false);
+		panel5334.setVisible(false);
+		panel5335.setVisible(false);
 	}
 
 	
@@ -26,46 +30,34 @@ public class PanelViewController implements Initializable {
 		String child = selectedPanel.getValue();
 	
 		Service s =  Service.getServiceByName(parent, child);
-		setPanel("test");
+		setPanel(s.toString());
 	}
 	public void setPanel(String serviceType) {
-		System.out.println("panelViewController -> setPanel method call");
-		panel5331.setVisible(true);
-		panel5332.setVisible(true);
-		panel5333.setVisible(true);
-		panel5334.setVisible(true);
-		panel5335.setVisible(true);
+		panel5331.setVisible(false);
+		panel5332.setVisible(false);
+		panel5333.setVisible(false);
+		panel5334.setVisible(false);
+		panel5335.setVisible(false);
 		
-//		panel5331.setVisible(false);
-//		panel5332.setVisible(false);
-//		panel5333.setVisible(false);
-//		panel5334.setVisible(false);
-//		panel5335.setVisible(false);
 		
-//		switch (serviceType) {
-//		case "S5331":
-//			panel5331.setStyle("-fx-background-color: red");
-//			panel5331.setVisible(true);			
-//			break;
-//		case "S5332":
-//			panel5332.setStyle("-fx-background-color: #aab232");
-//			panel5332.setVisible(true);
-//			break;
-//		case "S5333":
-//			panel5333.setStyle("-fx-background-color: yellow");
-//			panel5333.setVisible(true);			
-//			break;
-//		case "S5334":
-//			panel5334.setStyle("-fx-background-color: blue");
-//			panel5334.setVisible(true);
-//			break;
-//		case "S5335":
-//			panel5335.setStyle("-fx-background-color: green");
-//			panel5335.setVisible(true);						
-//			break;
-//
-//		default:
-//			break;
-//		}	
+		switch (serviceType) {
+		case "S5331":
+			panel5331.setVisible(true);			
+			break;
+		case "S5332":
+			panel5332.setVisible(true);
+			break;
+		case "S5333":
+			panel5333.setVisible(true);			
+			break;
+		case "S5334":
+			panel5334.setVisible(true);
+			break;
+		case "S5335":
+			panel5335.setVisible(true);						
+			break;
+		default:
+			break;
+		}	
 	}
 }
