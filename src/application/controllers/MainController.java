@@ -13,10 +13,6 @@ public class MainController  implements Initializable {
 	@FXML 
 	private TreeViewController treeViewController;
 
-	public MainController() {
-
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub	
