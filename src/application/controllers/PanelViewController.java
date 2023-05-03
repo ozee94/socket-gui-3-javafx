@@ -17,7 +17,7 @@ public class PanelViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		panel5331.setVisible(false);
-		panel5332.setVisible(false);
+//		panel5332.setVisible(false);
 		panel5333.setVisible(false);
 		panel5334.setVisible(false);
 		panel5335.setVisible(false);
@@ -38,7 +38,6 @@ public class PanelViewController implements Initializable {
 		panel5333.setVisible(false);
 		panel5334.setVisible(false);
 		panel5335.setVisible(false);
-		
 		
 		switch (serviceType) {
 		case "S5331":
