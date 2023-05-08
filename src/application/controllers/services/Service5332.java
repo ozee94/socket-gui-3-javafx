@@ -10,6 +10,7 @@ import application.dao.S5332Dao_Disaster;
 import application.dto.DBResultMessage;
 import application.dto.ResultTableDto;
 import application.dto.S5332Dto_Disaster;
+import application.utils.AlertUtils;
 import application.utils.DateUtils;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,9 +24,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Service5332 implements Initializable {
 
+	
 	@FXML private TextField lk_info_id, rcv_ymd_hms, seq_no, ocr_ymdhms, point_x, point_y, loc, earth_infm_scle,
 			earth_infm_no_ord, earth_infm_ref, earth_infm_cd_stn;
+	
 	@FXML private Button sendBtn;
+	
 	@FXML private TableView<ResultTableDto> resultTable;
 	@FXML private TableColumn<ResultTableDto, String> no;
 	@FXML private TableColumn<ResultTableDto, String> createdAt;
@@ -53,7 +57,6 @@ public class Service5332 implements Initializable {
 
 	public void onSend() {
 		try {
-			
 			S5332Dto_Disaster data = new S5332Dto_Disaster(lk_info_id.getText(), rcv_ymd_hms.getText(), Integer.parseInt(seq_no.getText()),
 					ocr_ymdhms.getText(), Float.parseFloat(point_x.getText()), Float.parseFloat(point_y.getText()), loc.getText(),
 					Float.parseFloat(earth_infm_scle.getText()), earth_infm_no_ord.getText(), earth_infm_ref.getText(),
@@ -63,7 +66,7 @@ public class Service5332 implements Initializable {
 			String resultText = result.getResult() ? "성공" : "실패";
 
 			ObservableList<ResultTableDto> tableData = resultTable.getItems();
-			tableData.add(new ResultTableDto(data.getSeq_no(), DateUtils.getCurrentTime(), resultText, data.toString(), result.getMessage()));
+			tableData.add(new ResultTableDto(tableData.size()+1, DateUtils.getCurrentTime(), resultText, data.toString(), result.getMessage()));
 
 			resultTable.setItems(tableData);
 			
@@ -74,10 +77,8 @@ public class Service5332 implements Initializable {
 				System.out.println(d.getSendData());
 				System.out.println(d.getErrorMessage());
 			}
-						
-			Alert alert = new Alert(Alert.AlertType.INFORMATION);
-			alert.setHeaderText("전송되었습니다.");
-			alert.showAndWait();
+					
+			AlertUtils.getIntance().show(Alert.AlertType.INFORMATION, "전송 되었습니다.");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[Service5332.java -> onSend] error");

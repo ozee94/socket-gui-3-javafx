@@ -39,7 +39,6 @@ public class S5332Dao_Disaster {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[S5332Dao_Disaster.java -> insert] DB 삽입 실패");
-			System.out.println(e.getMessage());
 			message = e.getMessage();
 		}
 		
