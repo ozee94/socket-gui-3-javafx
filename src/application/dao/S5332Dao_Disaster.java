@@ -3,14 +3,16 @@ package application.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import application.dto.DBResultMessage;
 import application.dto.S5332Dto_Disaster;
 
 public class S5332Dao_Disaster {
 	
 	public S5332Dao_Disaster() {}
 	
-	public boolean insert(S5332Dto_Disaster s5332Dto) {
+	public DBResultMessage<Boolean, String> insert(S5332Dto_Disaster s5332Dto) {
 		int result = 0;
+		String message = "";
 		
 		try {
 			Connection conn = DBConnection.getInstance().getConnection();
@@ -38,8 +40,9 @@ public class S5332Dao_Disaster {
 			// TODO: handle exception
 			System.out.println("[S5332Dao_Disaster.java -> insert] DB 삽입 실패");
 			System.out.println(e.getMessage());
+			message = e.getMessage();
 		}
 		
-		return result > 0;
+		return new DBResultMessage<>(result > 0, message);
 	}
 }

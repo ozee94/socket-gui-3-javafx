@@ -7,6 +7,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import application.dao.S5332Dao_Disaster;
+import application.dto.DBResultMessage;
 import application.dto.ResultTableDto;
 import application.dto.S5332Dto_Disaster;
 import application.utils.DateUtils;
@@ -48,11 +49,11 @@ public class Service5332 implements Initializable {
 					Float.parseFloat(earth_infm_scle.getText()), earth_infm_no_ord.getText(), earth_infm_ref.getText(),
 					earth_infm_cd_stn.getText());
 			
-			boolean result = s5332Dao.insert(data);
-			String resultText = result ? "성공" : "실패";
+			DBResultMessage<Boolean, String> result = s5332Dao.insert(data);
+			String resultText = result.getResult() ? "성공" : "실패";
 
 			ObservableList<ResultTableDto> tableData = resultTable.getItems();
-			tableData.add(new ResultTableDto(data.getSeq_no(), DateUtils.getCurrentTime(), resultText, data.toString(), "errorMessage"));
+			tableData.add(new ResultTableDto(data.getSeq_no(), DateUtils.getCurrentTime(), resultText, data.toString(), result.getMessage()));
 
 			resultTable.setItems(tableData);
 
