@@ -3,7 +3,7 @@ package application.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.models.Service;
+import application.dto.Service;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;

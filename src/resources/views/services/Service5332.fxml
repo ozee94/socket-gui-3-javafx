@@ -140,7 +140,7 @@
 					
 				<Button 
 					fx:id="sendBtn"
-					styleClass="bg-main-color, fc-w"
+					styleClass="bg-main-color, fc-w, c-pointer"
 					mnemonicParsing="false" prefHeight="27.0"
 					prefWidth="143.0" text="전송" textAlignment="RIGHT"
 					GridPane.columnIndex="3" GridPane.halignment="RIGHT"

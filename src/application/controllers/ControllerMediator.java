@@ -10,7 +10,6 @@ public class ControllerMediator {
 	private ControllerMediator() {}
 	
 	
-	
 	public PanelViewController getPanelViewController() {
 		return panelViewController;
 	}

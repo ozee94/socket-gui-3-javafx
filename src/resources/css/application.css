@@ -8,3 +8,6 @@
 .fc-w {
 	-fx-text-fill: #FFFFFF;
 }
+.c-pointer {
+	-fx-cursor: hand;
+}
