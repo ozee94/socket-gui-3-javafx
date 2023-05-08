@@ -16,25 +16,35 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Service5332 implements Initializable {
 
-	@FXML
-	private TextField lk_info_id, rcv_ymd_hms, seq_no, ocr_ymdhms, point_x, point_y, loc, earth_infm_scle,
+	@FXML private TextField lk_info_id, rcv_ymd_hms, seq_no, ocr_ymdhms, point_x, point_y, loc, earth_infm_scle,
 			earth_infm_no_ord, earth_infm_ref, earth_infm_cd_stn;
-	@FXML
-	private Button sendBtn;
-	@FXML
-	private TableView<ResultTableDto> resultTable;
+	@FXML private Button sendBtn;
+	@FXML private TableView<ResultTableDto> resultTable;
+	@FXML private TableColumn<ResultTableDto, String> no;
+	@FXML private TableColumn<ResultTableDto, String> createdAt;
+	@FXML private TableColumn<ResultTableDto, String> result;
+	@FXML private TableColumn<ResultTableDto, String> sendData;
+	@FXML private TableColumn<ResultTableDto, String> errorMessage;
+	
 
 	S5332Dao_Disaster s5332Dao = new S5332Dao_Disaster();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		no.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("no"));
+		createdAt.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("createdAt"));
+		result.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("result"));
+		sendData.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("sendData"));
+		errorMessage.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("errorMessage"));
+		
 		rcv_ymd_hms.setText(DateUtils.getCurrentTime());
 		ocr_ymdhms.setText(DateUtils.getCurrentTime());
 
@@ -56,7 +66,7 @@ public class Service5332 implements Initializable {
 			tableData.add(new ResultTableDto(data.getSeq_no(), DateUtils.getCurrentTime(), resultText, data.toString(), result.getMessage()));
 
 			resultTable.setItems(tableData);
-
+			
 			for(ResultTableDto d : tableData) {
 				System.out.println(d.getNo());
 				System.out.println(d.getCreatedAt());

@@ -92,11 +92,11 @@
 		</GridPane>
       <TableView fx:id="resultTable" layoutY="453.0" prefHeight="348.0" prefWidth="987.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="No." />
-          <TableColumn prefWidth="150.0" text="전송일시" />
-          <TableColumn prefWidth="75.0" text="결과" />
-          <TableColumn prefWidth="315.0" text="전송데이터" />
-          <TableColumn minWidth="0.0" prefWidth="359.0" text="오류내용" />
+          <TableColumn prefWidth="75.0" text="No." fx:id="no" />
+          <TableColumn prefWidth="150.0" text="전송일시" fx:id="createdAt" />
+          <TableColumn prefWidth="75.0" text="결과" fx:id="result" />
+          <TableColumn prefWidth="315.0" text="전송데이터" fx:id="sendData" />
+          <TableColumn minWidth="0.0" prefWidth="359.0" text="오류내용" fx:id="errorMessage" />
         </columns>
       </TableView>
 	</children>
