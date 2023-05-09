@@ -15,8 +15,14 @@ public class S5332Dao_Disaster {
 		String message = "";
 		
 		try {
-			Connection conn = DBConnection.getInstance().getConnection();
+			DBResultMessage<Connection, String> dbResult = DBConnection.getInstance().getConnection();
+			Connection conn = dbResult.getResult();
 
+			if(conn == null) {
+				message = dbResult.getMessage();
+				return new DBResultMessage<Boolean, String>(false, message);
+			}
+			
 			String sql = "INSERT INTO ELI_KMA_EARTH_INFM VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
@@ -39,6 +45,7 @@ public class S5332Dao_Disaster {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[S5332Dao_Disaster.java -> insert] DB 삽입 실패");
+			System.out.println(e.getMessage());
 			message = e.getMessage();
 		}
 		

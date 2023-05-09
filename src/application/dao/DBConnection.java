@@ -3,9 +3,14 @@ package application.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import application.dto.DBInfo;
+import application.dto.DBResultMessage;
+
 public class DBConnection {
 	
 	private static DBConnection instance = null;
+	
+	private DBInfo dbInfo = null;
 	
 	public DBConnection() {}
 	
@@ -16,17 +21,22 @@ public class DBConnection {
 		return instance;
 	}
 	
-	public Connection getConnection() {
+	public void setDBInfo(DBInfo dbInfo) {
+		this.dbInfo = dbInfo;
+	}
+	
+	public DBResultMessage<Connection, String> getConnection() {
 		Connection conn = null;
+		String message = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gs_service", "oooaaa", "dhwldus1!");
+			conn = DriverManager.getConnection("jdbc:mysql://" + dbInfo.getDbHostname() + ":" + dbInfo.getDbPort() + "/" + dbInfo.getDbName(), dbInfo.getDbUsername(), dbInfo.getDbPassword());
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[DBConnection.java -> connect] DB 연결 실패");
-			e.printStackTrace();
+			message = e.getMessage();
 		}
-		return conn;
+		return new DBResultMessage<>(conn, message);
 	}
 	
 	public void disconnect(AutoCloseable... autoCloseables) {
@@ -43,4 +53,4 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 	}
-}
+}	

@@ -30,11 +30,11 @@
 				<Label styleClass="fc-w" text="DB username" GridPane.columnIndex="3" />
 				<Label styleClass="fc-w" text="DB password" GridPane.columnIndex="4" />
 
-				<TextField prefHeight="27.0" prefWidth="54.0" promptText="DB hostname" text="localhost" GridPane.rowIndex="1" />
-				<TextField promptText="DB Port" text="3306" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<TextField promptText="DB name" text="tta-platform" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-				<TextField promptText="username" text="tta-platform-sd332" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-				<PasswordField promptText="password" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+				<TextField fx:id="dbHostname" prefHeight="27.0" prefWidth="54.0" promptText="DB hostname" text="localhost" GridPane.rowIndex="1" />
+				<TextField fx:id="dbPort" promptText="DB Port" text="3306" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="dbName" promptText="DB name" text="tta-platform" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+				<TextField fx:id="dbUsername" promptText="username" text="tta-platform-sd332" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+				<PasswordField fx:id="dbPassword" promptText="password" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 			</children>
 			<padding>
 				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
