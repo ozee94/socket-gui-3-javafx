@@ -23,8 +23,6 @@ public class PanelViewController implements Initializable {
 		panel5333.setVisible(false);
 		panel5334.setVisible(false);
 		panel5335.setVisible(false);
-		
-		service5331Controller.temp();
 	}
 
 	
