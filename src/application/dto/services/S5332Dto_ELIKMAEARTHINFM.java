@@ -1,6 +1,6 @@
-package application.dto;
+package application.dto.services;
 
-public class S5332Dto_Disaster {
+public class S5332Dto_ELIKMAEARTHINFM {
 	String lk_info_id;
 	String rcv_ymd_hms;
 	int seq_no;
@@ -13,9 +13,9 @@ public class S5332Dto_Disaster {
 	String earth_infm_no_ref;
 	String earth_infm_cd_stn;
 	
-	public S5332Dto_Disaster() {}
+	public S5332Dto_ELIKMAEARTHINFM() {}
 	
-	public S5332Dto_Disaster(String lk_info_id, String rcv_ymd_hms, int seq_no, String ocr_ymdhms, float point_x,
+	public S5332Dto_ELIKMAEARTHINFM(String lk_info_id, String rcv_ymd_hms, int seq_no, String ocr_ymdhms, float point_x,
 			float point_y, String loc, float earth_infm_scle, String earth_infm_no_ord, String earth_infm_no_ref,
 			String earth_infm_cd_stn) {
 		super();

@@ -8,7 +8,7 @@ import application.dao.S5332Dao_Disaster;
 import application.dto.DBInfo;
 import application.dto.DBResultMessage;
 import application.dto.ResultTableDto;
-import application.dto.S5332Dto_Disaster;
+import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
 import application.utils.AlertUtils;
 import application.utils.DateUtils;
 import javafx.collections.ObservableList;
