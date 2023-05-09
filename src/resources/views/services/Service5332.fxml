@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="panel5332" prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.services.Service5332">
+<Pane fx:id="panel5332" prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.services.Service5332Controller">
 	<children>
 		<GridPane hgap="10.0" prefHeight="84.0" prefWidth="987.0" styleClass="bg-main-color">
 			<columnConstraints>

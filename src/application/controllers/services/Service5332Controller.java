@@ -22,7 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Service5332 implements Initializable {
+public class Service5332Controller implements Initializable {
 
 	@FXML private TextField dbHostname;
 	@FXML private TextField dbPort;

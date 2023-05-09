@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import application.dto.Service;
+import application.utils.CustomTreeCell;
+import application.utils.CustomTreeCellSkin;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -20,7 +22,7 @@ public class TreeViewController implements Initializable {
 	private TreeView<String> treeView;
 	
 	private final Node rootIcon = new ImageView(
-			new Image(getClass().getResourceAsStream("/resources/images/category.png")));
+			new Image(getClass().getResourceAsStream("/resources/images/paperIcon.png")));
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

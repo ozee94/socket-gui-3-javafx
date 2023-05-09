@@ -3,6 +3,7 @@ package application.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.controllers.services.Service5331Controller;
 import application.dto.Service;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.layout.Pane;
 public class PanelViewController implements Initializable {
 
 	@FXML Pane panel5331, panel5332, panel5333, panel5334, panel5335;
+	@FXML Service5331Controller service5331Controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -21,6 +23,8 @@ public class PanelViewController implements Initializable {
 		panel5333.setVisible(false);
 		panel5334.setVisible(false);
 		panel5335.setVisible(false);
+		
+		service5331Controller.temp();
 	}
 
 	
