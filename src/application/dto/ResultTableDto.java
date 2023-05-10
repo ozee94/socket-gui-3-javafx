@@ -4,6 +4,7 @@ public class ResultTableDto {
 	
 	int no;
 	String createdAt;
+	String type;
 	String result;
 	String sendData;
 	String errorMessage;
@@ -12,9 +13,10 @@ public class ResultTableDto {
 		
 	}
 	
-	public ResultTableDto(int no, String createdAt, String result, String sendData, String errorMessage) {
+	public ResultTableDto(int no, String createdAt, String type, String result, String sendData, String errorMessage) {
 		this.no = no;
 		this.createdAt = createdAt;
+		this.type = type;
 		this.result = result;
 		this.sendData = sendData;
 		this.errorMessage = errorMessage;
@@ -34,6 +36,14 @@ public class ResultTableDto {
 
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getResult() {

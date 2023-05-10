@@ -101,7 +101,7 @@ public class S5332Dto_ELIKMAEARTHINFM {
 
 	@Override
 	public String toString() {
-		return " [lk_info_id=" + lk_info_id + ", rcv_ymd_hms=" + rcv_ymd_hms + ", seq_no=" + seq_no
+		return "[lk_info_id=" + lk_info_id + ", rcv_ymd_hms=" + rcv_ymd_hms + ", seq_no=" + seq_no
 				+ ", ocr_ymdhms=" + ocr_ymdhms + ", point_x=" + point_x + ", point_y=" + point_y + ", loc=" + loc
 				+ ", earth_infm_scle=" + earth_infm_scle + ", earth_infm_no_ord=" + earth_infm_no_ord
 				+ ", earth_infm_no_ref=" + earth_infm_no_ref + ", earth_infm_cd_stn=" + earth_infm_cd_stn + "]";

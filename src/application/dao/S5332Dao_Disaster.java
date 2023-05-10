@@ -45,7 +45,7 @@ public class S5332Dao_Disaster {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("[S5332Dao_Disaster.java -> insert] DB 삽입 실패");
+			System.out.println("[S5332Dao_Disaster.java -> insert] 지진현황 DB 삽입 실패");
 			System.out.println(e.getMessage());
 			message = e.getMessage();
 		}
@@ -66,20 +66,19 @@ public class S5332Dao_Disaster {
 				return new DBResultMessage<Boolean, String>(false, message);
 			}
 			
-			String sql = "INSERT INTO ELI_KMA_EARTH_INFM VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ELI_KMA_INFORM VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			
+	
 			ps.setString(1, s5332Dto.getLk_info_id()); // 연계정보아이디 
 			ps.setString(2, s5332Dto.getRcv_ymd_hms()); // 수신일자시각 
 			ps.setInt(3, s5332Dto.getSeq_no()); // 연번 
-			ps.setString(4, s5332Dto.getOcr_ymdhms()); // 발생시분초 
-			ps.setFloat(5, s5332Dto.getPoint_x()); // 좌표X 
-			ps.setFloat(6, s5332Dto.getPoint_y()); // 좌표Y 
-			ps.setString(7,s5332Dto.getLoc()); // 위치 
-			ps.setFloat(8, s5332Dto.getEarth_infm_scle()); // 지진규모(리히터) 
-			ps.setString(9, s5332Dto.getEarth_infm_no_ord()); // 지진등급 
-			ps.setString(10, s5332Dto.getEarth_infm_no_ref()); // 지진참고번호 
-			ps.setString(11, s5332Dto.getEarth_infm_cd_stn()); // 지진지점번호 
+			ps.setString(4, s5332Dto.getKma_ymdhms()); // KMA발표일시분
+			ps.setFloat(5, s5332Dto.getKma_seq_no()); // KMA발표연번 
+			ps.setString(6, s5332Dto.getKma_title()); // KMA발표제목 
+			ps.setString(7,s5332Dto.getKma_stat_ctnt()); // KMA발표내용 
+			ps.setString(8, s5332Dto.getKma_sect_area()); // KMA지역  
+			ps.setString(9, s5332Dto.getKma_pw_vl()); // KMA예비특보 
+			ps.setString(10, s5332Dto.getKma_cd_stn()); // KMA지점번호  
 			
 			result = ps.executeUpdate();
 			
@@ -87,7 +86,7 @@ public class S5332Dao_Disaster {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("[S5332Dao_Disaster.java -> insert] DB 삽입 실패");
+			System.out.println("[S5332Dao_Disaster.java -> insert] 기상특보 DB 삽입 실패");
 			System.out.println(e.getMessage());
 			message = e.getMessage();
 		}
