@@ -96,9 +96,9 @@ public class S5332Dto_ELIKMAINFORM {
 
 	@Override
 	public String toString() {
-		return "[lk_info_id=" + lk_info_id + ", rcv_ymd_hms=" + rcv_ymd_hms + ", seq_no=" + seq_no
-				+ ", kma_ymdhms=" + kma_ymdhms + ", kma_seq_no=" + kma_seq_no + ", kma_title=" + kma_title
-				+ ", kma_stat_ctnt=" + kma_stat_ctnt + ", kma_sect_area=" + kma_sect_area + ", kma_pw_vl=" + kma_pw_vl
-				+ ", kma_cd_stn=" + kma_cd_stn + "]";
+		return lk_info_id + ", " + rcv_ymd_hms + ", " + seq_no
+				+ ", " + kma_ymdhms + ", " + kma_seq_no + ", " + kma_title
+				+ ", " + kma_stat_ctnt + ", " + kma_sect_area + ", " + kma_pw_vl
+				+ ", " + kma_cd_stn;
 	}	
 }
