@@ -21,8 +21,8 @@ public class PanelViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		panel5331.setVisible(false);
-//		panel5332.setVisible(false);
+//		panel5331.setVisible(false);
+		panel5332.setVisible(false);
 		panel5333.setVisible(false);
 		panel5334.setVisible(false);
 		panel5335.setVisible(false);

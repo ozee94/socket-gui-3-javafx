@@ -9,6 +9,8 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.Pane?>
 
+<!-- 재난 상황관리지원서비스  -->
+
 <Pane fx:id="panel5332" prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.services.Service5332Controller">
 	<children>
 		<GridPane hgap="10.0" prefHeight="84.0" prefWidth="987.0" styleClass="bg-main-color">
@@ -30,11 +32,10 @@
 				<Label styleClass="fc-w" text="DB username" GridPane.columnIndex="3" />
 				<Label styleClass="fc-w" text="DB password" GridPane.columnIndex="4" />
 
-<!-- dbname[tta-platform], username[tta-platform-sd332]  -->
 				<TextField fx:id="dbHostname" prefHeight="27.0" prefWidth="54.0" promptText="DB hostname" text="localhost" GridPane.rowIndex="1" />
 				<TextField fx:id="dbPort" promptText="DB Port" text="3306" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<TextField fx:id="dbName" promptText="DB name" text="gs_service" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-				<TextField fx:id="dbUsername" promptText="username" text="oooaaa" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+				<TextField fx:id="dbName" promptText="DB name" text="tta-platform" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+				<TextField fx:id="dbUsername" promptText="username" text="tta-platform-sd332" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 				<PasswordField fx:id="dbPassword" promptText="password" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 			</children>
 			<padding>
