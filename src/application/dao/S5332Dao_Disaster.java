@@ -3,7 +3,7 @@ package application.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import application.dto.DBResultMessage;
+import application.dto.EventResultMessage;
 import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
 import application.dto.services.S5332Dto_ELIKMAINFORM;
 
@@ -11,17 +11,17 @@ public class S5332Dao_Disaster {
 	
 	public S5332Dao_Disaster() {}
 	
-	public DBResultMessage<Boolean, String> insertToELI_KMA_EARTH_INFM(S5332Dto_ELIKMAEARTHINFM s5332Dto) {
+	public EventResultMessage<Boolean, String> insertToELI_KMA_EARTH_INFM(S5332Dto_ELIKMAEARTHINFM s5332Dto) {
 		int result = 0;
 		String message = "";
 		
 		try {
-			DBResultMessage<Connection, String> dbResult = DBConnection.getInstance().getConnection();
+			EventResultMessage<Connection, String> dbResult = DBConnection.getInstance().getConnection();
 			Connection conn = dbResult.getResult();
 
 			if(conn == null) {
 				message = dbResult.getMessage();
-				return new DBResultMessage<Boolean, String>(false, message);
+				return new EventResultMessage<Boolean, String>(false, message);
 			}
 			
 			String sql = "INSERT INTO ELI_KMA_EARTH_INFM VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -50,20 +50,20 @@ public class S5332Dao_Disaster {
 			message = e.getMessage();
 		}
 		
-		return new DBResultMessage<>(result > 0, message);
+		return new EventResultMessage<>(result > 0, message);
 	}
 	
-	public DBResultMessage<Boolean, String> insertToELI_KMA_INFORM(S5332Dto_ELIKMAINFORM s5332Dto) {
+	public EventResultMessage<Boolean, String> insertToELI_KMA_INFORM(S5332Dto_ELIKMAINFORM s5332Dto) {
 		int result = 0;
 		String message = "";
 		
 		try {
-			DBResultMessage<Connection, String> dbResult = DBConnection.getInstance().getConnection();
+			EventResultMessage<Connection, String> dbResult = DBConnection.getInstance().getConnection();
 			Connection conn = dbResult.getResult();
 
 			if(conn == null) {
 				message = dbResult.getMessage();
-				return new DBResultMessage<Boolean, String>(false, message);
+				return new EventResultMessage<Boolean, String>(false, message);
 			}
 			
 			String sql = "INSERT INTO ELI_KMA_INFORM VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -91,6 +91,6 @@ public class S5332Dao_Disaster {
 			message = e.getMessage();
 		}
 		
-		return new DBResultMessage<>(result > 0, message);
+		return new EventResultMessage<>(result > 0, message);
 	}
 }
