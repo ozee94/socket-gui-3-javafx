@@ -1,10 +1,12 @@
 package application.controllers.services;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.constants.CService;
 import application.utils.DateUtils;
+import application.utils.SocketClient;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,8 +15,8 @@ import javafx.scene.control.TextField;
 
 public class Service5331Controller implements Initializable {
 
-	@FXML
-	private TextField transmission_code, receive_code, event_name, secondary_event_name,
+	@FXML private TextField hostname, port;
+	@FXML private TextField transmission_code, receive_code, event_name, secondary_event_name,
 			designated_law_code, occurrence_location, longitude, latitude, sender_id;
 	@FXML private ComboBox<String> progress_code;
 
@@ -31,6 +33,18 @@ public class Service5331Controller implements Initializable {
 	}
 
 	public void onSend() {
+		// 소켓 연결에 필요한 접속 정보 세팅 및 연결
+		SocketClient socket = SocketClient.getInstance();
+		socket.setSocketInfo(hostname.getText(), Integer.parseInt(port.getText()));
+		socket.connect();
+		
+		if(!socket.isConnected()) {
+			System.out.println("[Service5331Controller.java -> onSend()] 연결 실패");
+			return ;
+		}
+			
+		
+		// send data setting 
 		String now = DateUtils.getCurrentTime();
 		String body = "T" + now + CService.SEPERATOR + event_name.getText() + CService.SEPERATOR
 				+ secondary_event_name.getText() + CService.SEPERATOR + longitude.getText() + CService.SEPERATOR
@@ -39,10 +53,12 @@ public class Service5331Controller implements Initializable {
 
 		String header = "10" + progress_code.getValue().toString().substring(0, 2) + now + transmission_code.getText() + receive_code.getText() + now + String.format("%010d", body.length() + 48);
 		
-		/* 
-		 * 10 10 2023 05 11 11 34 38 = 14 119 UCP 2023 05 11 11 34 38 0000000173
-		 * T20230511113438 구조 교통사고_수정 127.0998121 37.4157335 경기도 성남시 수정구 대왕판교로 825
-		 * 한국국제협력단 4113111500 2023 05 11 11 34 38 user119 ;
-		 */
+		try {
+			socket.sendData((header + body));
+		} catch (IOException e) {
+			System.out.println("[Service5331Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
+			System.out.println(e.getMessage());
+		}
+		
 	}
 }

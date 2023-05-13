@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<TableView xmlns:fx="http://javafx.com/fxml"
+	fx:controller="application.controllers.ResultTableController"
+	fx:id="resultTable" layoutY="453.0" prefHeight="348.0"
+	prefWidth="987.0">
+	<columns>
+		<TableColumn fx:id="no" prefWidth="50.0" text="No." />
+		<TableColumn fx:id="createdAt" prefWidth="150.0" text="전송일시" />
+		<TableColumn fx:id="type" prefWidth="75.0" text="유형" />
+		<TableColumn fx:id="result" prefWidth="50.0" text="결과" />
+		<TableColumn fx:id="sendData" prefWidth="315.0" text="전송데이터" />
+		<TableColumn fx:id="errorMessage" minWidth="0.0" prefWidth="346.0" text="오류내용" />
+	</columns>
+</TableView>

@@ -81,6 +81,9 @@
 				<Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
 			</padding>
 		</GridPane>
+		
+   		<fx:include source="../ResultTable.fxml" fx:id="resultTable"/>
+				
 		<Button fx:id="sendBtn" layoutX="812.0" layoutY="367.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="143.0" styleClass="bg-main-color, fc-w, c-pointer" text="전송" textAlignment="RIGHT" />
 	</children>
 	<padding>
