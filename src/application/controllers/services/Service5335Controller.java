@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import application.dao.DBConnection;
 import application.dao.S5332Dao_Disaster;
 import application.dto.DBInfo;
-import application.dto.DBResultMessage;
+import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
 import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
 import application.utils.AlertUtils;

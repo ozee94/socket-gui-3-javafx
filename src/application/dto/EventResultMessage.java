@@ -1,10 +1,10 @@
 package application.dto;
 
-public class DBResultMessage <R, M> {
+public class EventResultMessage <R, M> {
 	private R result;
 	private M message;
 	
-	public DBResultMessage(R result, M message) {
+	public EventResultMessage(R result, M message) {
 		this.result = result;
 		this.message = message;
 	}

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import application.dto.DBInfo;
-import application.dto.DBResultMessage;
+import application.dto.EventResultMessage;
 
 public class DBConnection {
 	
@@ -25,7 +25,7 @@ public class DBConnection {
 		this.dbInfo = dbInfo;
 	}
 	
-	public DBResultMessage<Connection, String> getConnection() {
+	public EventResultMessage<Connection, String> getConnection() {
 		Connection conn = null;
 		String message = null;
 		try {
@@ -36,7 +36,7 @@ public class DBConnection {
 			System.out.println("[DBConnection.java -> connect] DB 연결 실패");
 			message = e.getMessage();
 		}
-		return new DBResultMessage<>(conn, message);
+		return new EventResultMessage<>(conn, message);
 	}
 	
 	public void disconnect(AutoCloseable... autoCloseables) {
