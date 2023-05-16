@@ -55,22 +55,24 @@
 			
 			<children>
 				<Label style="-fx-font-size: 16; -fx-font-weight: BOLD;" text="상황발생" />
-				<Label text="송신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-				<Label text="수신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-				<Label text="진행구분코드" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-				<Label text="종별명" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-				<Label text="종별세부명" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+           		<Label text="송신번호(구분키)" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+				<Label text="송신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+				<Label text="수신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+				<Label text="진행구분코드" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+				<Label text="종별명" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+				<Label text="종별세부명" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
 				<Label text="지역코드" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
 				<Label text="발생위치명(전체주소)" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
 				<Label text="발생위치(경도)" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
 				<Label text="발생위치(위도)" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
 				<Label text="전송자아이디" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
 			
-				<TextField fx:id="transmission_code" disable="true" text="119" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<TextField fx:id="receive_code" disable="true" text="UCP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-	            <ComboBox fx:id="progress_code" prefHeight="27.0" prefWidth="287.0" promptText="10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-				<TextField fx:id="event_name" promptText="화재, 구조 기타 등" text="화재" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-				<TextField fx:id="secondary_event_name" text="건물화재" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+	            <TextField fx:id="transmission_number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="transmission_code" disable="true" text="119" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<TextField fx:id="receive_code" disable="true" text="UCP" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+	            <ComboBox fx:id="progress_code" prefHeight="27.0" prefWidth="287.0" promptText="10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<TextField fx:id="event_name" promptText="화재, 구조 기타 등" text="화재" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+				<TextField fx:id="secondary_event_name" text="건물화재" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 				<TextField fx:id="designated_law_code" text="4113111500" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 				<TextField fx:id="occurrence_location" text="코오롱린든 그로브" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 				<TextField fx:id="longitude" text="127.0989389" GridPane.columnIndex="3" GridPane.rowIndex="3" />
@@ -82,7 +84,7 @@
 			</padding>
 		</GridPane>
 		
-   		<fx:include source="../ResultTable.fxml" fx:id="resultTable"/>
+   		<fx:include fx:id="resultTable" source="../ResultTable.fxml" />
 				
 		<Button fx:id="sendBtn" layoutX="812.0" layoutY="367.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="143.0" styleClass="bg-main-color, fc-w, c-pointer" text="전송" textAlignment="RIGHT" />
 	</children>

@@ -42,9 +42,11 @@ public class ResultTableController implements Initializable {
 		ObservableList<ResultTableDto> tableData = resultTable.getItems();
 		tableData.add(data);
 		resultTable.setItems(tableData);
+		resultTable.refresh();
 	}
 	
 	public int getTableSize() {
+		System.out.println("resultTable.getItems().size()" + resultTable.getItems().size());
 		return resultTable.getItems().size();
 	}
 }

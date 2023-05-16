@@ -6,6 +6,8 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+import application.dto.EventResultMessage;
+
 public class SocketClient {
 
 	public static SocketClient instance = null;
@@ -46,33 +48,38 @@ public class SocketClient {
 			bytes = new byte[200];
 			int readByteCount = is.read(bytes);
 			message = new String(bytes, 0, readByteCount, "UTF-8");
-			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message
-					+ "\n===============================================");
+//			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message + "\n===============================================");
 			is.close();
 			os.close();
+			
+			disconnect();
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public void connect() {
+	public EventResultMessage<Socket, String> connect() {
+		String message = "";
 		try {
 			if (socket == null) {
 				socket = new Socket();
 			}
 
 			if (socket.isConnected()) {
-				System.out.println("❗️이미 " + ip + ":" + port + "에 연결되어 습니다");
+//				System.out.println("❗️이미 " + ip + ":" + port + "에 연결되어 습니다");
 			} else {
-				System.out.println(ip + ":" + port + " 연결 요청");
+//				System.out.println(ip + ":" + port + " 연결 요청");
 				socket.connect(new InetSocketAddress(ip, port));
-				System.out.println(ip + ":" + port + " 연결 성공");
+//				System.out.println(ip + ":" + port + " 연결 성공");
 			}
 		} catch (IOException e) {
-			System.out.println("[❌]소켓 연결 중 실패" + e);
-			socket = new Socket();
+//			System.out.println("[❌]소켓 연결 중 실패" + e);
+			socket = null;
+			message = e.getMessage();
 		}
+		
+		return new EventResultMessage<Socket, String>(socket, message);
 	}
 
 	public boolean isConnected() {
@@ -84,12 +91,12 @@ public class SocketClient {
 			if (socket != null && socket.isConnected()) {
 				socket.close();
 				socket = null;
-				System.out.println(ip + ":" + port + " 연결 해제 ⭕️\n");
+//				System.out.println(ip + ":" + port + " 연결 해제 ⭕️\n");
 			} else {
-				System.out.println("[❌] 현재 연결되어 있는 소켓이 없습니다");
+//				System.out.println("[❌] 현재 연결되어 있는 소켓이 없습니다");
 			}
 		} catch (IOException e) {
-			System.out.println("[❌]소켓 연결해제 실패");
+//			System.out.println("[❌]소켓 연결해제 실패");
 		}
 	}
 }
