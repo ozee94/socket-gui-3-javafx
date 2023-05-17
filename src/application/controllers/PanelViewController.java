@@ -14,21 +14,25 @@ import javafx.scene.layout.Pane;
 
 public class PanelViewController implements Initializable {
 
-	@FXML Pane panel5331, panel5332, panel5333, panel5334, panel5335;
+//	@FXML Pane panel5331, panel5332, panel5333, panel5334, panel5335;
+	@FXML Pane socketPane, panel5332, panel5334;
+	
+	@FXML SocketViewController socketViewController;
+	
 	@FXML Service5331Controller service5331Controller;
 	@FXML Service5332Controller service5332Controller;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		ControllerMediator.getInstance().setSocketViewController(socketViewController);
+
 //		panel5331.setVisible(false);
 		panel5332.setVisible(false);
-		panel5333.setVisible(false);
+//		panel5333.setVisible(false);
 		panel5334.setVisible(false);
-		panel5335.setVisible(false);
+//		panel5335.setVisible(false);
 	}
 
-	
 	public void handlePanel(TreeItem<String> serviceType) {
 		if(serviceType == null) return ;
 		String parent = serviceType.getParent().getValue();
@@ -39,24 +43,19 @@ public class PanelViewController implements Initializable {
 	}
 	
 	public void setPanel(Service service, String serviceType) {
-		panel5331.setVisible(false); // 119긴급출동 지원서비스
+		socketPane.setVisible(false);
 		panel5332.setVisible(false); // 재난상황 지원서비스
-		panel5333.setVisible(false); // 사회적약자 지원서비스
 		panel5334.setVisible(false); // 112긴급출동 지원서비스
-		panel5335.setVisible(false); // 112긴급영상 지원서비스
 		
 		switch (service.toString()) {
 		case "socket":
-//			panel5331.setVisible(true);			
+			socketPane.setVisible(true);
 			if(Service.socket.getCategory().get(0).equals(serviceType)) {
-				panel5331.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_INFORM);				
+				socketViewController.changePane(ServiceType.SOCKET.S_119);
 			} else if (Service.socket.getCategory().get(1).equals(serviceType)) {
-				panel5333.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_EARTH_INFM);
+				socketViewController.changePane(ServiceType.SOCKET.S_WEAK);
 			} else if (Service.socket.getCategory().get(2).equals(serviceType)) {
-				panel5335.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_EARTH_INFM);
+				socketViewController.changePane(ServiceType.SOCKET.S_112);
 			}
 			break;
 		case "db":
@@ -68,7 +67,7 @@ public class PanelViewController implements Initializable {
 			}
 			break;
 		case "webService":
-			panel5333.setVisible(true);			
+//			panel5333.setVisible(true);			
 			break;
 		default:
 			break;
