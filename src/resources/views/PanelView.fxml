@@ -14,17 +14,24 @@
 	minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
 
 	<children>
-	
-		<Pane fx:id="socketPane" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
-			<fx:include source="SocketView.fxml" fx:id="socketView"/>
+		<Pane fx:id="panel5331" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
+			<fx:include source="services/Service5331.fxml" fx:id="service5331"/>
 		</Pane>
 		
 		<Pane fx:id="panel5332" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
 			<fx:include source="services/Service5332.fxml" fx:id="service5332"/>
 		</Pane>
-
+		
+		<Pane fx:id="panel5333" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
+			<fx:include source="services/Service5333.fxml" fx:id="service5333"/>
+		</Pane>
+		
 		<Pane fx:id="panel5334" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
 			<fx:include source="services/Service5334.fxml" fx:id="service5334"/>
+		</Pane>
+		
+		<Pane fx:id="panel5335" prefHeight="800.0" prefWidth="987.0" styleClass="bg-w">
+			<fx:include source="services/Service5335.fxml" fx:id="service5335"/>
 		</Pane>
 	</children>
 
