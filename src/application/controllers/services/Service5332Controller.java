@@ -10,7 +10,7 @@ import application.dto.DBInfo;
 import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
 import application.dto.ServiceType;
-import application.dto.ServiceType.S5332;
+import application.dto.ServiceType.DB;
 import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
 import application.dto.services.S5332Dto_ELIKMAINFORM;
 import application.utils.AlertUtils;
@@ -41,7 +41,7 @@ public class Service5332Controller implements Initializable {
 	@FXML private ResultTableController resultTableController;
 	
 	S5332Dao_Disaster s5332Dao = new S5332Dao_Disaster();
-	ServiceType.S5332 serviceType = S5332.ELI_KMA_INFORM;
+	ServiceType.DB serviceType = DB.ELI_KMA_INFORM;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -57,7 +57,7 @@ public class Service5332Controller implements Initializable {
 	}
 	
 	
-	public void changePane(ServiceType.S5332 serviceType) {
+	public void changePane(ServiceType.DB serviceType) {
 		earthGridPane.setVisible(false);
 		rainGridPane.setVisible(false);
 		
@@ -79,7 +79,7 @@ public class Service5332Controller implements Initializable {
 			DBConnection.getInstance().setDBInfo(new DBInfo(dbHostname.getText(), dbPort.getText(), dbName.getText(), dbUsername.getText(), dbPassword.getText()));
 			String type = "";
 			
-			if( serviceType == ServiceType.S5332.ELI_KMA_EARTH_INFM ) {
+			if( serviceType == ServiceType.DB.ELI_KMA_EARTH_INFM ) {
 				
 				type = "지진현황";
 				S5332Dto_ELIKMAEARTHINFM data = new S5332Dto_ELIKMAEARTHINFM(lk_info_id.getText(), rcv_ymd_hms.getText(), Integer.parseInt(seq_no.getText()),
@@ -92,7 +92,7 @@ public class Service5332Controller implements Initializable {
 
 				resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), type, resultText, data.toString(), result.getMessage()));
 
-			} else if ( serviceType == ServiceType.S5332.ELI_KMA_INFORM ) {
+			} else if ( serviceType == ServiceType.DB.ELI_KMA_INFORM ) {
 
 				type = "기상특보";
 				S5332Dto_ELIKMAINFORM data = new S5332Dto_ELIKMAINFORM(lk_info_id2.getText(), rcv_ymd_hms2.getText(), Integer.parseInt(seq_no2.getText()),

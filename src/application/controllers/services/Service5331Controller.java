@@ -43,10 +43,7 @@ public class Service5331Controller implements Initializable {
 		// 소켓 연결에 필요한 접속 정보 세팅 및 연결
 		SocketClient socket = SocketClient.getInstance();
 		socket.setSocketInfo(hostname.getText(), Integer.parseInt(port.getText()));
-		EventResultMessage<Socket, String> socketResult = socket.connect();
-
-		String message = "";
-		
+		EventResultMessage<Socket, String> socketResult = socket.connect();		
 		
 		if(socketResult.getResult() == null) { 	
 			System.out.println("[Service5331Controller.java -> onSend()] 연결 실패");
@@ -65,8 +62,6 @@ public class Service5331Controller implements Initializable {
 		String header = "10" + progress_code.getValue().toString().substring(0, 2) + now + transmission_code.getText() + receive_code.getText() + now + String.format("%010d", body.length() + 48);
 		String data = (header + body);
 		
-		System.out.println(data);
-		
 		try {
 			boolean result = socket.sendData(data);
 			if(result) {
@@ -76,7 +71,6 @@ public class Service5331Controller implements Initializable {
 			System.out.println("[Service5331Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
 			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "119-"+progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
 			System.out.println(e.getMessage());
-		}
-		
+		}	
 	}
 }

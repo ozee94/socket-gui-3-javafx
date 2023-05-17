@@ -48,7 +48,7 @@ public class SocketClient {
 			bytes = new byte[200];
 			int readByteCount = is.read(bytes);
 			message = new String(bytes, 0, readByteCount, "UTF-8");
-//			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message + "\n===============================================");
+			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message + "\n===============================================");
 			is.close();
 			os.close();
 			
