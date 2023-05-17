@@ -43,10 +43,10 @@ public class ResultTableController implements Initializable {
 		tableData.add(data);
 		resultTable.setItems(tableData);
 		resultTable.refresh();
+		resultTable.scrollTo(resultTable.getItems().size() - 1);
 	}
 	
 	public int getTableSize() {
-		System.out.println("resultTable.getItems().size()" + resultTable.getItems().size());
 		return resultTable.getItems().size();
 	}
 }
