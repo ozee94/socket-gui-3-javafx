@@ -21,11 +21,8 @@ public class PanelViewController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-//		panel5331.setVisible(false);
-		panel5332.setVisible(false);
-		panel5333.setVisible(false);
-		panel5334.setVisible(false);
-		panel5335.setVisible(false);
+		showAllPanels(false);
+		panel5331.setVisible(true);
 	}
 
 	
@@ -38,25 +35,25 @@ public class PanelViewController implements Initializable {
 		setPanel(service, child);
 	}
 	
+	public void showAllPanels(boolean visible) {
+		panel5331.setVisible(visible); // 119긴급출동 지원서비스
+		panel5332.setVisible(visible); // 재난상황 지원서비스
+		panel5333.setVisible(visible); // 사회적약자 지원서비스
+		panel5334.setVisible(visible); // 112긴급출동 지원서비스
+		panel5335.setVisible(visible); // 112긴급영상 지원서비스		
+	}
+	
 	public void setPanel(Service service, String serviceType) {
-		panel5331.setVisible(false); // 119긴급출동 지원서비스
-		panel5332.setVisible(false); // 재난상황 지원서비스
-		panel5333.setVisible(false); // 사회적약자 지원서비스
-		panel5334.setVisible(false); // 112긴급출동 지원서비스
-		panel5335.setVisible(false); // 112긴급영상 지원서비스
+		showAllPanels(false);
 		
 		switch (service.toString()) {
 		case "socket":
-//			panel5331.setVisible(true);			
 			if(Service.socket.getCategory().get(0).equals(serviceType)) {
 				panel5331.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_INFORM);				
 			} else if (Service.socket.getCategory().get(1).equals(serviceType)) {
 				panel5333.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_EARTH_INFM);
 			} else if (Service.socket.getCategory().get(2).equals(serviceType)) {
 				panel5335.setVisible(true);
-//				service5332Controller.changePane(ServiceType.DB.ELI_KMA_EARTH_INFM);
 			}
 			break;
 		case "db":
