@@ -19,6 +19,6 @@
 		<TableColumn fx:id="type" prefWidth="75.0" text="유형" />
 		<TableColumn fx:id="result" prefWidth="50.0" text="결과" />
 		<TableColumn fx:id="sendData" prefWidth="315.0" text="전송데이터" />
-		<TableColumn fx:id="errorMessage" minWidth="0.0" prefWidth="346.0" text="오류내용" />
+		<TableColumn fx:id="errorMessage" minWidth="0.0" prefWidth="346.0" text="상세내용" />
 	</columns>
 </TableView>

@@ -9,11 +9,130 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane 
-	fx:id="panel5333" 
-	prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
-	fx:controller="application.controllers.services.Service5333Controller">
+<Pane fx:id="panel5333" prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.services.Service5333Controller">
+
 	<children>
-		<Label layoutX="402.0" layoutY="424.0" text="사회적약자지원서비스 panel" />
+		<GridPane hgap="10.0" prefHeight="84.0" prefWidth="987.0" styleClass="bg-main-color">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label styleClass="fc-w" text="hostname" />
+				<Label styleClass="fc-w" text="port" GridPane.columnIndex="1" />
+
+				<TextField fx:id="hostname" prefHeight="27.0" prefWidth="54.0" promptText="hostname" text="10.0.100.138" GridPane.rowIndex="1" />
+				<TextField fx:id="port" promptText="port" text="5333" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+			</children>
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+		</GridPane>
+		
+		 <GridPane layoutY="84.0" prefHeight="46.0" prefWidth="987.0">
+	        <columnConstraints>
+	          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+	        </columnConstraints>
+	        <rowConstraints>
+	          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+	        </rowConstraints>
+	         <children>	
+				<Label style="-fx-font-size: 16; -fx-font-weight: BOLD;" text="사회적약자 지원서비스" />
+	      		<Button fx:id="sendBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="143.0" styleClass="bg-main-color, fc-w, c-pointer" text="전송" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+	         </children>
+
+			<padding>
+				<Insets bottom="10.0" left="30.0" right="30.0" top="40.0" />
+			</padding>
+	      </GridPane>
+      <ScrollPane layoutY="154.0" prefHeight="299.0" prefWidth="987.0" styleClass="bg-w">
+         <content>
+      	
+      		<GridPane fx:id="earthGridPane" hgap="10.0" prefHeight="445.0" prefWidth="966.0" styleClass="bg-w">
+      			<columnConstraints>
+      				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      				<ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="220.0" />
+      				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="220.0" />
+      			</columnConstraints>
+      			<rowConstraints>
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      				<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="100.0" />
+                  <RowConstraints prefHeight="100.0" />
+                  <RowConstraints prefHeight="100.0" />
+                  <RowConstraints prefHeight="100.0" />
+      			</rowConstraints>
+      			
+      			<children>
+               		<Label text="발생번호(구분키)" GridPane.halignment="RIGHT" />
+      				<Label text="송신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      				<Label text="수신시스템코드" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+      				<Label text="진행구분코드" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+      				<Label text="지역코드" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+      				<Label text="발생위치명(전체주소)" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+      				<Label text="발생위치(경도)" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+      				<Label text="발생위치(위도)" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+      				<Label text="이름" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+      				<Label text="핸드폰번호" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+      				
+      				<Label text="출생일" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+      				<Label text="성별" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      				<Label text="주소(주거지)" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+      				<Label text="보호자이름" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+      				<Label text="보호자핸드폰" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+      				<Label text="발생일시" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+      				<Label text="이미지" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+      				<Label text="신상정보" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+      				<Label text="특이사항" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+      				<Label text="전송자아이디" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+      			
+      	            <TextField fx:id="transmission_number" GridPane.columnIndex="1" />
+      				<TextField fx:id="transmission_code" disable="true" text="WP1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      				<TextField fx:id="receive_code" disable="true" text="UCP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      	            <ComboBox  fx:id="progress_code" prefHeight="27.0" prefWidth="287.0" promptText="10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      				<TextField fx:id="designated_law_code" text="4113510900" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      				<TextField fx:id="occurrence_location" text="수영강변대로 140" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      				<TextField fx:id="longitude" text="127.1012453" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      				<TextField fx:id="latitude" text="37.4089425" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      				<TextField fx:id="name" text="홍길동" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      				<TextField fx:id="phone" text="010-1111-1111" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+      				<TextField fx:id="birth" text="20081022" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+      				<TextField fx:id="gender" text="남" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      				<TextField fx:id="address" text="수영강변대로 140 806호" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      				<TextField fx:id="protector_name" text="홍을동" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      				<TextField fx:id="protector_phone" text="010-1111-1122" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+      				<TextField fx:id="occurrence_date" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      				<TextField fx:id="image" text="https://zeroweb.kr/images/zeroweb_logo_b.svg" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+      				<TextField fx:id="personal_information" text="흰색 상의를 입고 있음" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+      				<TextField fx:id="note" text="눈이 크고 서양계의 이목구비" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      				<TextField fx:id="sender_id" text="SKT001" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+
+      			</children>
+      			<padding>
+      				<Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+      			</padding>
+      		</GridPane>
+         </content>
+      </ScrollPane>
+		
+   		<fx:include fx:id="resultTable" source="../ResultTable.fxml" />
+  
 	</children>
+	<padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+	</padding>
+	
 </Pane>

@@ -31,7 +31,7 @@ public class SocketClient {
 		}
 	}
 
-	public boolean sendData(String data) throws IOException {
+	public EventResultMessage<Boolean, String> sendData(String data) throws IOException {
 		if (isConnected()) {
 			byte[] bytes = null;
 			String message = data;
@@ -48,14 +48,18 @@ public class SocketClient {
 			bytes = new byte[200];
 			int readByteCount = is.read(bytes);
 			message = new String(bytes, 0, readByteCount, "UTF-8");
-			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message + "\n===============================================");
+//			System.out.println("RECEIVED DATA 👇👇👇\n" + "byte : " + readByteCount + "\nmessage : " + message + "\n===============================================");
 			is.close();
 			os.close();
 			
 			disconnect();
-			return true;
+			if(Integer.parseInt(message.substring(0, 1)) == 0) { // 성공
+				return new EventResultMessage<Boolean, String>(true, message.substring(1, 101));
+			} else { // 실패
+				return new EventResultMessage<Boolean, String>(false, message.substring(1, 101));				
+			}
 		} else {
-			return false;
+			return new EventResultMessage<Boolean, String>(false, "연결되어 있는 소켓이 없습니다.");
 		}
 	}
 

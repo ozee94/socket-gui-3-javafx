@@ -47,29 +47,26 @@ public class Service5331Controller implements Initializable {
 		
 		if(socketResult.getResult() == null) { 	
 			System.out.println("[Service5331Controller.java -> onSend()] 연결 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "119", "실패", "", socketResult.getMessage()));
+			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "연결", "실패", "", socketResult.getMessage()));
 			return ;
 		}
-					
 		
 		// send data setting 
 		String now = DateUtils.getCurrentTime();
 		String body = "T" + transmission_number.getText() + CService.SEPERATOR + event_name.getText() + CService.SEPERATOR
 				+ secondary_event_name.getText() + CService.SEPERATOR + longitude.getText() + CService.SEPERATOR
 				+ latitude.getText() + CService.SEPERATOR + occurrence_location.getText() + CService.SEPERATOR
-				+ designated_law_code.getText() + CService.SEPERATOR + sender_id.getText() + ";";
+				+ designated_law_code.getText() + CService.SEPERATOR + sender_id.getText() + CService.SEPERATOR + ";";
 
 		String header = "10" + progress_code.getValue().toString().substring(0, 2) + now + transmission_code.getText() + receive_code.getText() + now + String.format("%010d", body.length() + 48);
 		String data = (header + body);
 		
 		try {
-			boolean result = socket.sendData(data);
-			if(result) {
-				resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "119-"+progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "성공", data, ""));				
-			}
+			EventResultMessage<Boolean, String> result = socket.sendData(data);
+			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
 		} catch (IOException e) {
 			System.out.println("[Service5331Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "119-"+progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
+			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
 			System.out.println(e.getMessage());
 		}	
 	}
