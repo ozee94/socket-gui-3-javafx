@@ -80,7 +80,7 @@ public class Service5333Controller implements Initializable {
 			EventResultMessage<Boolean, String> result = socket.sendData(data);
 			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
 		} catch (IOException e) {
-			System.out.println("[Service5331Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
+			System.out.println("[Service5333Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
 			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
 			System.out.println(e.getMessage());
 		}	
