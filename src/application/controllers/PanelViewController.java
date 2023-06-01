@@ -22,7 +22,7 @@ public class PanelViewController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		showAllPanels(false);
-		panel5331.setVisible(true);
+		panel5334.setVisible(true);
 	}
 
 	
@@ -65,7 +65,7 @@ public class PanelViewController implements Initializable {
 			}
 			break;
 		case "webService":
-			panel5333.setVisible(true);			
+			panel5334.setVisible(true);			
 			break;
 		default:
 			break;

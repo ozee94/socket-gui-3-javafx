@@ -8,12 +8,117 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.Pane?>
+<?import java.util.ArrayList?>
 
-<Pane 
-	fx:id="panel5334" 
-	prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
-	fx:controller="application.controllers.services.Service5334Controller">
+<Pane fx:id="panel5334" prefHeight="800.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.services.Service5334Controller">
+
 	<children>
-		<Label layoutX="402.0" layoutY="424.0" text="112긴급출동지원서비스 panel" />
+		<GridPane hgap="10.0" prefHeight="84.0" prefWidth="987.0" styleClass="bg-main-color">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label styleClass="fc-w" text="hostname" />
+				<Label styleClass="fc-w" text="port" GridPane.columnIndex="1" />
+
+				<TextField fx:id="hostname" prefHeight="27.0" prefWidth="54.0" promptText="hostname" text="10.0.100.138" GridPane.rowIndex="1" />
+				<TextField fx:id="port" promptText="port" text="5334" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+			</children>
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+		</GridPane>
+
+		<GridPane layoutY="84.0" prefHeight="46.0" prefWidth="987.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label style="-fx-font-size: 16; -fx-font-weight: BOLD;" text="112긴급출동 지원서비스" />
+				<Button fx:id="sendBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="143.0" styleClass="bg-main-color, fc-w, c-pointer" text="전송" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+			</children>
+
+			<padding>
+				<Insets bottom="10.0" left="30.0" right="30.0" top="40.0" />
+			</padding>
+		</GridPane>
+		<ScrollPane layoutY="154.0" prefHeight="299.0" prefWidth="987.0" styleClass="bg-w">
+			<content>
+
+				<GridPane hgap="10.0" prefHeight="343.0" prefWidth="967.0" styleClass="bg-w">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="485.0" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="783.0" minWidth="10.0" prefWidth="800.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+
+					<children>
+						<Label text="파일ID" GridPane.halignment="RIGHT" />
+						<Label text="파일명1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+						<Label text="파일명2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+						<Label text="파일명3" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+						<Label text="파일명4" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+						<Label text="파일명5" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+						<Label text="파일명6" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+						<Label text="파일명7" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+						<Label text="파일명8" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+
+						<TextField fx:id="fileID" promptText="MTSUC0020230530102842742" GridPane.columnIndex="1" />
+						<TextField fx:id="fileNm1" promptText="test1.png" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+						<TextField fx:id="fileNm2" promptText="test2.png" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+						<TextField fx:id="fileNm3" promptText="test3.png" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+						<TextField fx:id="fileNm4" promptText="test4.png" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+						<TextField fx:id="fileNm5" promptText="test5.png" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+						<TextField fx:id="fileNm6" promptText="test6.png" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+						<TextField fx:id="fileNm7" promptText="test7.png" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+						<TextField fx:id="fileNm8" promptText="test8.png" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+						
+						<fx:define>
+							<ArrayList fx:id="fileNmList">
+								<fx:reference source="fileNm1" />
+								<fx:reference source="fileNm2" />
+								<fx:reference source="fileNm3" />
+								<fx:reference source="fileNm4" />
+								<fx:reference source="fileNm5" />
+								<fx:reference source="fileNm6" />
+								<fx:reference source="fileNm7" />
+								<fx:reference source="fileNm8" />
+							</ArrayList>
+						</fx:define>
+					</children>
+					<padding>
+						<Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+					</padding>
+				</GridPane>
+			</content>
+		</ScrollPane>
+
+		<fx:include fx:id="resultTable" source="../ResultTable.fxml" />
+
 	</children>
+	<padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+	</padding>
+
 </Pane>
