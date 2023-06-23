@@ -2,6 +2,7 @@ package application.dto;
 
 public class ResultTableDto {
 	
+	Service serviceType;
 	int no;
 	String createdAt;
 	String type;
@@ -13,13 +14,22 @@ public class ResultTableDto {
 		
 	}
 	
-	public ResultTableDto(int no, String createdAt, String type, String result, String sendData, String errorMessage) {
+	public ResultTableDto(Service serviceType, int no, String createdAt, String type, String result, String sendData, String errorMessage) {
+		this.serviceType = serviceType;
 		this.no = no;
 		this.createdAt = createdAt;
 		this.type = type;
 		this.result = result;
 		this.sendData = sendData;
 		this.errorMessage = errorMessage;
+	}
+	
+	public Service getServiceType() {
+		return serviceType;
+	}
+
+	public void setServiceType(Service serviceType) {
+		this.serviceType = serviceType;
 	}
 
 	public int getNo() {

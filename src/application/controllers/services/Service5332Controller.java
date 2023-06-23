@@ -9,6 +9,7 @@ import application.dao.S5332Dao_Disaster;
 import application.dto.DBInfo;
 import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
+import application.dto.Service;
 import application.dto.ServiceType;
 import application.dto.ServiceType.DB;
 import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
@@ -90,7 +91,7 @@ public class Service5332Controller implements Initializable {
 				EventResultMessage<Boolean, String> result = s5332Dao.insertToELI_KMA_EARTH_INFM(data);
 				String resultText = result.getResult() ? "성공" : "실패";
 
-				resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), type, resultText, data.toString(), result.getMessage()));
+				resultTableController.addRow(new ResultTableDto(Service.db, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), type, resultText, data.toString(), result.getMessage()));
 
 			} else if ( serviceType == ServiceType.DB.ELI_KMA_INFORM ) {
 
@@ -101,7 +102,7 @@ public class Service5332Controller implements Initializable {
 				EventResultMessage<Boolean, String> result = s5332Dao.insertToELI_KMA_INFORM(data);
 				String resultText = result.getResult() ? "성공" : "실패";
 
-				resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), type, resultText, data.toString(), result.getMessage()));
+				resultTableController.addRow(new ResultTableDto(Service.db, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), type, resultText, data.toString(), result.getMessage()));
 			
 			}
 

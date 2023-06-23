@@ -12,6 +12,7 @@ import application.dao.S5332Dao_Disaster;
 import application.dto.DBInfo;
 import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
+import application.dto.Service;
 import application.dto.services.S5332Dto_ELIKMAEARTHINFM;
 import application.utils.AlertUtils;
 import application.utils.DateUtils;
@@ -60,7 +61,7 @@ public class Service5333Controller implements Initializable {
 		
 		if(socketResult.getResult() == null) { 	
 			System.out.println("[Service5333Controller.java -> onSend()] 연결 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "연결", "실패", "", socketResult.getMessage()));
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "연결", "실패", "", socketResult.getMessage()));
 			return ;
 		}
 
@@ -78,10 +79,10 @@ public class Service5333Controller implements Initializable {
 		
 		try {
 			EventResultMessage<Boolean, String> result = socket.sendData(data);
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
 		} catch (IOException e) {
 			System.out.println("[Service5333Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
 			System.out.println(e.getMessage());
 		}	
 	}

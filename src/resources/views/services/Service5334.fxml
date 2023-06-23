@@ -84,7 +84,7 @@
 						<Label text="파일명7" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
 						<Label text="파일명8" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
 
-						<TextField fx:id="fileID" promptText="MTSUC0020230530102842742" GridPane.columnIndex="1" />
+						<TextField fx:id="fileID" promptText="ZEROWEB-TTA-2023-1685919147749" GridPane.columnIndex="1" />
 						<TextField fx:id="fileNm1" promptText="test1.png" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 						<TextField fx:id="fileNm2" promptText="test2.png" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 						<TextField fx:id="fileNm3" promptText="test3.png" GridPane.columnIndex="1" GridPane.rowIndex="3" />

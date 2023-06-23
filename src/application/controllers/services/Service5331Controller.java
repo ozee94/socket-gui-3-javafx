@@ -9,6 +9,7 @@ import application.constants.CService;
 import application.controllers.ResultTableController;
 import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
+import application.dto.Service;
 import application.utils.DateUtils;
 import application.utils.SocketClient;
 import javafx.fxml.FXML;
@@ -31,7 +32,8 @@ public class Service5331Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "50-해제", "91-종료");
+//		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "50-해제", "91-종료");
+		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "91-종료");
 		progress_code.getSelectionModel().select("10-상황발생");
 		
 		transmission_number.setText(DateUtils.getCurrentTime());
@@ -47,7 +49,7 @@ public class Service5331Controller implements Initializable {
 		
 		if(socketResult.getResult() == null) { 	
 			System.out.println("[Service5331Controller.java -> onSend()] 연결 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "연결", "실패", "", socketResult.getMessage()));
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), "연결", "실패", "", socketResult.getMessage()));
 			return ;
 		}
 		
@@ -63,10 +65,10 @@ public class Service5331Controller implements Initializable {
 		
 		try {
 			EventResultMessage<Boolean, String> result = socket.sendData(data);
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), result.getResult() ? "성공" : "실패", data, result.getMessage()));
 		} catch (IOException e) {
 			System.out.println("[Service5331Controller.java -> onSend()] 소켓 데이터 전송 시 실패");
-			resultTableController.addRow(new ResultTableDto(resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
+			resultTableController.addRow(new ResultTableDto(Service.socket, resultTableController.getTableSize()+1, DateUtils.getCurrentTime(), progress_code.getValue().toString().substring(progress_code.getValue().toString().length() - 2), "실패", data, e.getMessage()));				
 			System.out.println(e.getMessage());
 		}	
 	}

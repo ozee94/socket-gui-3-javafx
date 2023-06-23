@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.dto.ResultTableDto;
+import application.dto.Service;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,6 +34,7 @@ public class ResultTableController implements Initializable {
 		result.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("result"));
 		sendData.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("sendData"));
 		sendData.setCellFactory(param -> TableCellWrapper.wrapping());
+		
 		errorMessage.setCellValueFactory(new PropertyValueFactory<ResultTableDto, String>("errorMessage"));
 		errorMessage.setCellFactory(param -> TableCellWrapper.wrapping());
 		
@@ -41,6 +43,11 @@ public class ResultTableController implements Initializable {
 	public void addRow(ResultTableDto data) {
 		ObservableList<ResultTableDto> tableData = resultTable.getItems();
 		tableData.add(data);
+		
+//		if(data.getServiceType() == Service.webService) {
+//			sendData.setCellFactory(param -> TableCellWrapper.wrappingWithHyperLink());
+//		}
+		
 		resultTable.setItems(tableData);
 		resultTable.refresh();
 		resultTable.scrollTo(resultTable.getItems().size() - 1);
