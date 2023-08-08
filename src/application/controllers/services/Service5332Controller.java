@@ -3,6 +3,8 @@ package application.controllers.services;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import application.controllers.ResultTableController;
 import application.dao.DBConnection;
 import application.dao.S5332Dao_Disaster;
@@ -19,6 +21,7 @@ import application.utils.DateUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -76,6 +79,26 @@ public class Service5332Controller implements Initializable {
 	
 	
 	public void onSend() {
+		if(dbHostname.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "호스트명을 입력해주세요."); return ;
+		}
+
+		if(dbPort.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "포트번호를 입력해주세요."); return ;
+		}
+
+		if(dbName.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "데이터베이스명을 입력해주세요."); return ;
+		}
+
+		if(dbUsername.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "사용자명을 입력해주세요."); return ;
+		}
+		
+		if(dbPassword.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "비밀번호를 입력해주세요."); return ;
+		}
+
 		try {
 			DBConnection.getInstance().setDBInfo(new DBInfo(dbHostname.getText(), dbPort.getText(), dbName.getText(), dbUsername.getText(), dbPassword.getText()));
 			String type = "";

@@ -54,6 +54,14 @@ public class Service5335Controller implements Initializable {
 	}
 	
 	public void onSend() {
+		if(hostname.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "호스트명을 입력해주세요."); return ;
+		}
+
+		if(port.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "포트번호를 입력해주세요."); return ;
+		}
+		
 		// 소켓 연결에 필요한 접속 정보 세팅 및 연결
 		SocketClient socket = SocketClient.getInstance();
 		socket.setSocketInfo(hostname.getText(), Integer.parseInt(port.getText()));

@@ -32,10 +32,10 @@
 				<Label styleClass="fc-w" text="DB username" GridPane.columnIndex="3" />
 				<Label styleClass="fc-w" text="DB password" GridPane.columnIndex="4" />
 
-				<TextField fx:id="dbHostname" prefHeight="27.0" prefWidth="54.0" promptText="DB hostname" text="10.0.0.5" GridPane.rowIndex="1" />
+				<TextField fx:id="dbHostname" prefHeight="27.0" prefWidth="54.0" promptText="DB hostname" text="192.168.0.3" GridPane.rowIndex="1" />
 				<TextField fx:id="dbPort" promptText="DB Port" text="3306" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-				<TextField fx:id="dbName" promptText="DB name" text="tta-platform" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-				<TextField fx:id="dbUsername" promptText="username" text="tta-platform-sd332" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+				<TextField fx:id="dbName" promptText="DB name" text="anuro-platform-gs-cert" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+				<TextField fx:id="dbUsername" promptText="username" text="anuro-platform-sd332" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 				<PasswordField fx:id="dbPassword" promptText="password" GridPane.columnIndex="4" GridPane.rowIndex="1" />
 			</children>
 			<padding>
@@ -74,7 +74,7 @@
 				<Label text="지진참고번호" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
 				<Label text="지진지점번호" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
 					
-				<TextField fx:id="lk_info_id" disable="true" text="KMA_EARTH_INFM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="lk_info_id" text="KMA_EARTH_INFM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<TextField fx:id="rcv_ymd_hms" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 				<TextField fx:id="seq_no" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 				<TextField fx:id="ocr_ymdhms" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -121,7 +121,7 @@
 				<Label text="예비특보" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
 				<Label text="지점번호" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
 					
-				<TextField fx:id="lk_info_id2" disable="true" text="KMA_INFORM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="lk_info_id2" text="KMA_INFORM" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<TextField fx:id="rcv_ymd_hms2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 				<TextField fx:id="seq_no2" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 				<TextField fx:id="kma_ymdhms" GridPane.columnIndex="1" GridPane.rowIndex="4" />

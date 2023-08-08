@@ -16,17 +16,20 @@ import application.controllers.ResultTableController;
 import application.dto.EventResultMessage;
 import application.dto.ResultTableDto;
 import application.dto.Service;
+import application.utils.AlertUtils;
 import application.utils.DateUtils;
 import application.utils.HttpConnector;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
 public class Service5334Controller implements Initializable {
 
-	private final String URL = "http://10.0.100.138:5334";
+	@FXML private TextField hostname, port;
+	private String URL = "";
 	private final String uid = "MTEy6ri06riJ7KeA7JuQ7ISc67mE7Iqk7JmA7J2065Oc7YGQ67iM";
 	private String retYmdHms = "";
 	private String sendData = "";
@@ -44,9 +47,18 @@ public class Service5334Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		sendBtn.setOnAction(e -> this.onSend());
+		URL = "http://" + hostname.getText() + ":" + port.getText();
 	}
 
 	public void onSend() {
+		if(hostname.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "호스트명을 입력해주세요."); return ;
+		}
+
+		if(port.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "포트번호를 입력해주세요."); return ;
+		}
+		
 		if (!setFileId())
 			return;
 		if (!getSituationList())
