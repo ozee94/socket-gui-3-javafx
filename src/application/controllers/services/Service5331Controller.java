@@ -35,7 +35,7 @@ public class Service5331Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 //		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "50-해제", "91-종료");
-		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "91-종료");
+		progress_code.getItems().addAll("10-상황발생", "40-정보변경", "50-상황처리", "91-종료");
 		progress_code.getSelectionModel().select("10-상황발생");
 		
 		transmission_number.setText(DateUtils.getCurrentTime());

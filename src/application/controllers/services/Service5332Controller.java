@@ -129,7 +129,14 @@ public class Service5332Controller implements Initializable {
 			
 			}
 
+			if (this.serviceType == serviceType.ELI_KMA_EARTH_INFM) {
+				lk_info_id.setText((Integer.parseInt(lk_info_id.getText()) + 1) + "");
+			} else if (this.serviceType == serviceType.ELI_KMA_INFORM) {
+				lk_info_id2.setText((Integer.parseInt(lk_info_id2.getText()) + 1) + "");				
+			}
+			
 			AlertUtils.getIntance().show(Alert.AlertType.INFORMATION, "전송 되었습니다.");
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("[Service5332.java -> onSend] error");

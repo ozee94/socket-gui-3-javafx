@@ -59,6 +59,10 @@ public class Service5334Controller implements Initializable {
 			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "포트번호를 입력해주세요."); return ;
 		}
 		
+		if(fileID.getLength() == 0) {
+			AlertUtils.getIntance().show(Alert.AlertType.WARNING, "파일ID를 입력해주세요."); return ;			
+		}
+		
 		if (!setFileId())
 			return;
 		if (!getSituationList())
