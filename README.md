@@ -26,5 +26,11 @@ TTA 인증에서 요구하는 5대 연계를 테스트하기 위한 소켓 통�
 <div>긴급재난상황 지원서비스</div>
 <img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-db.gif"/>
 
-<div>그 외 서비스</div>
-<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-socket.gif"/>
+<div>119 긴급출동 지원서비스</div>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-1.gif"/>
+
+<div>사회적 약자 지원서비스</div>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-2.gif"/>
+
+<div>112 긴급영상 지원서비스</div>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-3.gif"/>
