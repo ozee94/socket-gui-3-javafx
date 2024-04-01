@@ -4,7 +4,7 @@
 
 <div style="display: flex; flex-direction: row;">
 <img alt="java" src="https://img.shields.io/badge/Java-3A75B0?style=for-the-badge&logo=Java&logoColor=white"/>
-<img alt="java netbeans" src="https://img.shields.io/badge/Java Netbeans-3A75B0?style=for-the-badge&logo=Java&logoColor=white"/>	
+<img alt="javafx" src="https://img.shields.io/badge/JavaFX-3A75B0?style=for-the-badge&logo=Java&logoColor=white"/>	
 </div>
 
 <br />
@@ -20,11 +20,11 @@ TTA 인증에서 요구하는 5대 연계를 테스트하기 위한 소켓 통�
 <br />
 
 <h4>실행화면</h3>
-<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-netbeans/product-img.png"/>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/product-img.png"/>
 
 <h4>시연화면</h3>
-<div>일회전송</div>
-<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-2-netbeans/video-socket-2-1.gif"/>
+<div>긴급재난상황 지원서비스</div>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-db.gif"/>
 
-<div>반복전송</div>
-<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-2-netbeans/video-socket-2-2.gif"/>
+<div>그 외 서비스</div>
+<img style="width:75%;" src="https://ozee94.github.io/static/socket-gui-3-javafx/video-socket-3-socket.gif"/>
